@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from "react";
 const Slider = ({ value, onValueChange, className, min, max, step }) => (
   <input
@@ -10,6 +9,9 @@ const Slider = ({ value, onValueChange, className, min, max, step }) => (
     onChange={(e) => onValueChange([parseFloat(e.target.value)])}
     className={className}
   />
+);
+const Button = ({ children, ...props }) => (
+  <button {...props}>{children}</button>
 );
 
 export default function InfiniSignalPage() {
@@ -72,7 +74,7 @@ export default function InfiniSignalPage() {
     return Array.from({ length: totalDots }, (_, i) => (
       <span
         key={i}
-        className={\`mx-0.5 text-lg \${i < activeDots ? "text-green-400" : "text-green-900"}\`}
+        className={`mx-0.5 text-lg ${i < activeDots ? "text-green-400" : "text-green-900"}`}
       >
         ●
       </span>
@@ -142,7 +144,7 @@ export default function InfiniSignalPage() {
         )}
       </div>
 
-      <style jsx>{\`
+      <style jsx>{`
         @keyframes flicker {
           0% { opacity: 1; }
           50% { opacity: 0.4; }
@@ -167,7 +169,7 @@ export default function InfiniSignalPage() {
         .glow-flash {
           animation: glowFlash 1.2s ease-in-out;
         }
-      \`}</style>
+      `}</style>
     </div>
   );
 }
