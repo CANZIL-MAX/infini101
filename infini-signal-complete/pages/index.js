@@ -1,7 +1,16 @@
 
 import { useState, useEffect, useRef } from "react";
-import { Slider } from "@/components/ui/slider";
-import { Button } from "@/components/ui/button";
+const Slider = ({ value, onValueChange, className, min, max, step }) => (
+  <input
+    type="range"
+    min={min}
+    max={max}
+    step={step}
+    value={value}
+    onChange={(e) => onValueChange([parseFloat(e.target.value)])}
+    className={className}
+  />
+);
 
 export default function InfiniSignalPage() {
   const [frequency, setFrequency] = useState(101.0);
